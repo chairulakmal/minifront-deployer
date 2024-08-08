@@ -12,6 +12,7 @@ on:
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    environment: vercel
     steps:
       #   🛠️ ========== Needed to build minifront ========== 🛠️
       - name: Checkout repository
