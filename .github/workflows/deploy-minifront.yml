@@ -62,11 +62,9 @@ jobs:
       #       VERCEL_TOKEN: Create one here https://vercel.com/<TEAM NAME>/<PROJECT NAME>/settings/environment-variables
       #
       - name: Install Vercel CLI
-        if: ${{ env.VERCEL_ORG_ID != '' && env.VERCEL_PROJECT_ID != '' && env.VERCEL_TOKEN != '' }}
         run: pnpm add --global vercel@latest
 
       - name: Pull Vercel Environment Information
-        if: ${{ env.VERCEL_ORG_ID != '' && env.VERCEL_PROJECT_ID != '' && env.VERCEL_TOKEN != '' }}
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
         working-directory: ./web/apps/minifront/dist/
         env:
@@ -74,11 +72,9 @@ jobs:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
       - name: Build Project Artifacts
-        if: ${{ env.VERCEL_ORG_ID != '' && env.VERCEL_PROJECT_ID != '' && env.VERCEL_TOKEN != '' }}
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
         working-directory: ./web/apps/minifront/dist/
 
       - name: Deploy Project Artifacts to Vercel
-        if: ${{ env.VERCEL_ORG_ID != '' && env.VERCEL_PROJECT_ID != '' && env.VERCEL_TOKEN != '' }}
         run: vercel deploy --prebuilt --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
         working-directory: ./web/apps/minifront/dist/
