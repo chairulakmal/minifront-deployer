@@ -3,7 +3,7 @@
   "target": "production",
   "argv": [
     "/opt/hostedtoolcache/node/22.12.0/x64/bin/node",
-    "/home/runner/setup-pnpm/node_modules/.bin/global/5/node_modules/vercel/dist/index.js",
+    "/home/runner/setup-pnpm/node_modules/.bin/global/5/node_modules/vercel/dist/vc.js",
     "build",
     "--prod",
     "--token=REDACTED"
